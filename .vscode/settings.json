@@ -1,0 +1,10 @@
+{
+  "liveServer.settings.multiRootWorkspaceName": "quiz-dw3",
+  "liveServer.settings.port": 8000,
+  "liveServer.settings.host": "localhost",
+  "liveServer.settings.proxy": {
+    "enable": false,
+    "baseUri": "/",
+    "proxyUri": "http://localhost:8000"
+  }
+}
