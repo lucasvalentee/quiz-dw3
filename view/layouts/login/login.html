@@ -1,8 +1,18 @@
-<header clas="">
-  <div class="">
-    <h1 class="">Bem vindo!</h1>
+<form class="p-5 text-white">
+  <div class="form-group">
+    <label for="nome">Nome:&nbsp;</label>
+    <input type="text" class="form-control" id="nomeLogin" aria-describedby="nomeLogin">
+    <div id="validationLoginNameOnServer" class="invalid-feedback">
+      O campo nome é obrigatório para realizar o login.
+    </div>
   </div>
-</header>
-<main role="main" class="inner cover">
-  <h3>Para ter acesso ao Quiz, cadastre-se ou faça login.</h3>
-</main>
+  <div class="form-group">
+    <label for="senha">Senha:&nbsp;</label>
+    <input type="password" class="form-control" id="senhaLogin">
+    <div id="validationLoginPasswordOnServer" class="invalid-feedback">
+      O campo senha é obrigatório para realizar o login.
+    </div>
+  </div>
+  <button onclick="doLogin()" class="btn btn-success">Login</button>
+  <button type="submit" onclick="alert('Cadastrou ae')" class="btn btn-primary">Cadastre-se</button>
+</form>
