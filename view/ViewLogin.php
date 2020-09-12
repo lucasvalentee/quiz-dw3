@@ -8,7 +8,7 @@ class ViewLogin {
   }
 
   private function loadLoginHtml() {
-    $this->setHtml('Isso é um teste mano véio.');
+    $this->setHtml($this->getHtmlLogin());
   }
 
   public function setHtml($html) {
@@ -17,6 +17,14 @@ class ViewLogin {
 
   public function getHtml() {
     return $this->html;
+  }
+
+  private function getHtmlLogin() {
+    ob_start();
+      ?>
+        <html></html>
+      <?php
+    
   }
 
 }
