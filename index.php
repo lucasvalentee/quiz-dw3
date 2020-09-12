@@ -32,13 +32,13 @@ session_start();
                                 <input type="hidden" id='codigo' value='1'>
                             </div>
                             <div class="form-group">                                
-                                Sim <input type="checkbox" name="resposta[]" id="r1">
+                                <input type="checkbox" name="resposta[]" id="r1"> Sim
                             </div>
                             <div class="form-group">                               
-                                Não <input type="checkbox" name="resposta[]" id="r2">
+                                <input type="checkbox" name="resposta[]" id="r2"> Não 
                             </div>
                             <div class="form-group">
-                                Talvez <input type="checkbox" name="resposta[]" id="r3">
+                                <input type="checkbox" name="resposta[]" id="r3"> Talvez
                             </div>                                                    
                         </div>
                         <div class="modal-footer">

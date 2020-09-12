@@ -2,7 +2,7 @@ $(document).ready(function(){
     aTbQuizz = [];            
     if (sessionStorage.getItem("tbQuizz")) {
         aTbQuizz = sessionStorage.getItem("tbQuizz");
-        aTbQuizz = JSON.parse(aTbProdutos);        
+        aTbQuizz = JSON.parse(aTbQuizz);        
     }    
 });
 
@@ -36,7 +36,9 @@ function verificaPergunta() {
             $("#codigo").val(3);
             break;
         case 3:
-            $("#modalCadastros").modal('hide');           
+            $("#modalCadastros").modal('hide');
+            insereApi();
+            sessionStorage.clear();
     }
 }
 
@@ -52,4 +54,15 @@ function carregaPergunta2() {
 
 function carregaPergunta3() {
     $("#pergunta").text('3 - Você trabalha?');
+}
+
+function insereApi() {
+    for (var iCont in aTbQuizz) {
+        var oResposta = JSON.parse(aTbQuizz[iCont]);        
+        $.ajax({
+            url: 'controller/ControllerQuiz.php',
+            type: 'POST',
+            data: oResposta            
+        });
+    }    
 }
