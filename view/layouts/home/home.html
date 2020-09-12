@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-center">
+    <div class='text-center d-button-quiz'>
+        <button type='button' class='btn btn-secondary mr-4' data-toggle='modal' data-target='#modalCadastros' id='btn-cadastro'>Responder Questionário</button>
+    </div>
+    
+    <div class="modal fade" id="modalCadastros" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Quizz</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form id="frmCadastro">
+                        <div class="form-group">
+                            <p id='pergunta'>1- Você gosta de programar? </p>
+                            <input type="hidden" id='codigo' value='1'>
+                        </div>
+                        <div class="form-group">                                
+                            <input type="checkbox" name="resposta[]" id="r1"> Sim
+                        </div>
+                        <div class="form-group">                               
+                            <input type="checkbox" name="resposta[]" id="r2"> Não 
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="resposta[]" id="r3"> Talvez
+                        </div>                                                    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" id="btnGravar" class="btn btn-primary">Gravar</button>
+                    </form>
+                </div>                    
+            </div>
+        </div>
+    </div>            
+</div> 

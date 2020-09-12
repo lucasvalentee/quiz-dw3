@@ -1,6 +1,10 @@
 <?php
 require_once('biblioteca/Autoload.php');
 class ControllerPadrao {
+  
+  public static function getWindow() {
+    (isset($_SESSION['login']) && isset($_SESSION['senha'])) ? self::getInstanceView('Home') : self::getInstanceView('Login');
+  }
 
   public static function getInstance($sObjectName) {
     return (class_exists($sObjectName)) ? new $sObjectName() : false;

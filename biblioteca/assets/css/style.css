@@ -21,3 +21,11 @@ header, footer {
 .b-color-default {
   background-color:rgba(0, 0, 0, .5);
 }
+
+.h-min-default {
+  min-height: 50% !important;
+}
+
+.d-button-quiz {
+  margin-top: 22% !important;
+}

@@ -2,21 +2,29 @@
 class ViewHome {
 
     private $html;
-
+    
     public function __construct() {
-        $this->setHtml()  ;
+        $this->loadHtmlHome();
     }        
+    
+    private function loadHtmlHome() {
+        $this->setHtml($this->getHtmlHome());   
+    }
     
     public function getHtml() {
         return $this->html;
     }
 
-    public function setHtml() {
-        $this->html = "
-            <div class='text-center'>
-                <button type='button' class='btn btn-primary mr-4' data-toggle='modal' data-target='#modalCadastros' id='btn-cadastro'>Cadastrar Quizz</button>
-            </div>
-        ";
+    public function setHtml($html) {
+        $this->html = $html;
     }
-  
+    
+    private function getHtmlHome() {
+        ob_start();
+
+        include_once('layouts/home/home.html');
+
+        return ob_get_contents();
+    }
+
 }
