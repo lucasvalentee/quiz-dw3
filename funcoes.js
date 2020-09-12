@@ -36,7 +36,8 @@ function verificaPergunta() {
             $("#codigo").val(3);
             break;
         case 3:
-            $("#modalCadastros").modal('hide');
+            $("#modalCadastros").hide();
+            $(".modal-backdrop").hide()                    
             insereApi();
             sessionStorage.clear();
     }
@@ -57,7 +58,7 @@ function carregaPergunta3() {
 }
 
 function insereApi() {
-    for (var iCont in aTbQuizz) {
+    for (var iCont in aTbQuizz) {        
         var oResposta = JSON.parse(aTbQuizz[iCont]);        
         $.ajax({
             url: 'controller/ControllerQuiz.php',

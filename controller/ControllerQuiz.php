@@ -8,18 +8,16 @@ class ControllerQuiz {
         $this->verificaRequisicao();        
     }
 
-    private function verificaRequisicao() {
+    private function verificaRequisicao() {        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $this->insereRegistro();
-            echo 'entrou no insere';
+            $this->insereRegistro();                        
         } else {
-            $this->listaRegistro();
-            echo 'entrou na listagem';
+            $this->listaRegistro();           
         }
     }
 
     private function insereRegistro() {
-
+                     
     }
 
     private function listaRegistro() {
