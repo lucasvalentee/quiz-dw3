@@ -1,6 +1,7 @@
 <div class="d-flex justify-content-center">
-    <div class='text-center d-button-quiz'>
+    <div class='text-center d-button-quiz' id='botoes'>
         <button type='button' class='btn btn-secondary mr-4' data-toggle='modal' data-target='#modalCadastros' id='btn-cadastro'>Responder Questionário</button>
+        <button type='button' class='btn btn-secondary mr-4' data-toggle='modal' data-target='#modalResultado' id='btn-resultado'>Resultado</button>
     </div>
     
     <div class="modal fade" id="modalCadastros" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -35,5 +36,24 @@
                 </div>                    
             </div>
         </div>
-    </div>            
-</div> 
+    </div>
+    
+    <div class="modal fade" id="modalResultado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Quizz</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body" id='modal-body'>                                                                                                         
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>                                          
+                    </div>                    
+            </div>
+        </div>
+    </div>
+
+</div>

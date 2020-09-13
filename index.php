@@ -9,11 +9,11 @@ session_start();
   <body>
     <div class="container d-flex w-100 h-100 p-3 flex-column">
       <header class="mb-auto">Teste</header>
-      <main role="main" class="d-flex w-100 h-100 inner flex-column justify-content-center">
+      <main role="main" class="d-flex w-100 h-100 inner flex-column justify-content-center">      
         <div id="d-main" class="w-50 align-self-center b-color-default h-min-default">
           <?php ControllerPadrao::getWindow() ?>
       </main>
-      <?php include('view/layouts/footer.html') ?>
+      <?php include('view/layouts/footer.html') ?>      
     </div>
   </body>
 </html>

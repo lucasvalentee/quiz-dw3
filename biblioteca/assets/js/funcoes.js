@@ -3,14 +3,15 @@ $(document).ready(function(){
     if (sessionStorage.getItem("tbQuizz")) {
         aTbQuizz = sessionStorage.getItem("tbQuizz");
         aTbQuizz = JSON.parse(aTbQuizz);        
-    }    
+    }
+    $("#btn-resultado").hide();    
 });
 
 function incluirRegistro() {                     
-    var oResposta = JSON.stringify({        
-        p1 : $("#r1").is(':checked'),
-        p2 : $("#r2").is(':checked'),
-        p3 : $("#r3").is(':checked'),          
+    var oResposta = JSON.stringify({                
+        r1 : $("#r1").is(':checked'),
+        r2 : $("#r2").is(':checked'),
+        r3 : $("#r3").is(':checked'),          
     });     
     aTbQuizz.push(oResposta);    
     sessionStorage.setItem("tbQuizz", JSON.stringify(aTbQuizz));    
@@ -40,6 +41,8 @@ function verificaPergunta() {
             $(".modal-backdrop").hide()                    
             insereApi();
             sessionStorage.clear();
+            $("#btn-cadastro").hide();
+            $("#btn-resultado").show();                        
     }
 }
 
@@ -59,14 +62,41 @@ function carregaPergunta3() {
 
 function insereApi() {
     for (var iCont in aTbQuizz) {        
-        var oResposta = JSON.parse(aTbQuizz[iCont]);        
-        $.ajax({
+        var oResposta = JSON.parse(aTbQuizz[iCont]);
+        var oRespostaFinal = JSON.stringify({
+            usuario: 1,
+            pergunta: parseInt(iCont) + 1,
+            resposta: oResposta.r1+','+oResposta.r2+','+oResposta.r3            
+        });              
+        $.ajax({            
             url: 'controller/ControllerQuiz.php',
             type: 'POST',
-            data: oResposta,
-            success: function(response) {
-                console.log(response);
-            }          
+            data: JSON.parse(oRespostaFinal),                    
         });
     }    
 }
+
+$("#btn-resultado").click(function() {
+    $.ajax({            
+        url: 'controller/ControllerQuiz.php?usuario=1',
+        type: 'GET',        
+        success: function(response) {
+            iAcertos = 0;
+            aResposta = JSON.parse(response);            
+            if (aResposta[0].resalternativa == "true,true,true") {
+                iAcertos++;
+            }
+            if (aResposta[1].resalternativa == "false,true,false") {
+                iAcertos++;
+            }
+            if (aResposta[2].resalternativa == "true,false,false") {
+                iAcertos++;
+            }
+            if (iAcertos == 1) {
+                $("#modal-body").append('<h1>Você acertou '+iAcertos+' questão</h1>');
+            } else {
+                $("#modal-body").append('<h1>Você acertou '+iAcertos+' questões</h1>');
+            }                        
+        }          
+    });    
+});
