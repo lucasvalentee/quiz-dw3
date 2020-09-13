@@ -63,7 +63,10 @@ function insereApi() {
         $.ajax({
             url: 'controller/ControllerQuiz.php',
             type: 'POST',
-            data: oResposta            
+            data: oResposta,
+            success: function(response) {
+                console.log(response);
+            }          
         });
     }    
 }

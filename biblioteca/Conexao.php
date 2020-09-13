@@ -4,14 +4,13 @@
  */
 class Conexao {
 
-    /** @var PDO */
     private $conexao;
 
     public function __construct() {
         $this->setConexao($this->getInstanceConnection());
     }
     
-    public function setConexao(PDO $conexao) {
+    public function setConexao($conexao) {
         $this->conexao = $conexao;
     }
 
@@ -20,7 +19,7 @@ class Conexao {
     }
 
     public function getInstanceConnection() {
-        return new PDO("pgsql:host=localhost;port=5432;dbname=quizz;user=postgres;password=postgres");
+        return pg_connect("host=localhost port=5432 dbname=quizz user=postgres password=postgres");
     }
 
 }
