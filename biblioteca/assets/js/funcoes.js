@@ -67,7 +67,7 @@ function insereApi() {
             usuario: 1,
             pergunta: parseInt(iCont) + 1,
             resposta: oResposta.r1+','+oResposta.r2+','+oResposta.r3            
-        });              
+        });                  
         $.ajax({            
             url: 'controller/ControllerQuiz.php',
             type: 'POST',

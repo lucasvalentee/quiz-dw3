@@ -1,35 +1,19 @@
-const doLogin = () => {
-    event.preventDefault();  
-
-    if(validateLogin()) {
-        $.ajax({
-
-        });
-    }
-}
-
-const validateLogin = () => {
-    let bValidation = true;
-
-    if(!checkInputIsValid('nomeLogin')) {
-        bValidation = false;
-    }
-
-    if(checkInputIsValid('senhaLogin')) {
-        bValidation = false;
-    }
-
-    return bValidation;
-}
-
-const checkInputIsValid = (sNameInput) => {
-    let bValidation = true;
-    $(`#${sNameInput}`).removeClass('is-invalid');
-
-    if(!$(`#${sNameInput}`).val()) {
-        $(`#${sNameInput}`).addClass('is-invalid')
-        bValidation = false;
-    }
-
-    return bValidation;
-}
+$("#frm-login").on("submit", function(){    
+    event.preventDefault();
+    //sData = "{login:"+$("#nomeLogin").val()+",senha:"+$("#senhaLogin").val()+"}";
+    sData = JSON.stringify({
+        login: $("#nomeLogin").val(),
+        senha: $("#senhaLogin").val()
+    });
+    sDataLogin = JSON.stringify({
+        ok: true
+    });    
+    $.ajax({
+        url: 'controller/ControllerLogin.php',
+        type: 'POST',
+        data: JSON.parse(sData),
+        success: function(response) {
+            console.log(response);
+        }
+    });    
+});
