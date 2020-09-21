@@ -1,18 +1,17 @@
-<form class="p-5 text-white" id='frm-login'>
+<form class="p-5 text-white" id='frm-login' action="index.php" method="POST">
   <div class="form-group">
     <label for="nome">Nome:&nbsp;</label>
-    <input type="text" class="form-control" id="nomeLogin" aria-describedby="nomeLogin">
+    <input type="text" class="form-control" id="nomeLogin" aria-describedby="nomeLogin" name="login">
     <div id="validationLoginNameOnServer" class="invalid-feedback">
       O campo nome é obrigatório para realizar o login.
     </div>
   </div>
   <div class="form-group">
     <label for="senha">Senha:&nbsp;</label>
-    <input type="password" class="form-control" id="senhaLogin">
+    <input type="password" class="form-control" id="senhaLogin" name="senha">
     <div id="validationLoginPasswordOnServer" class="invalid-feedback">
       O campo senha é obrigatório para realizar o login.
     </div>
   </div>
   <button type="submit" class="btn btn-success">Login</button>
-  <button type="submit" onclick="alert('Cadastrou ae')" class="btn btn-primary">Cadastre-se</button>
 </form>
